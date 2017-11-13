@@ -1,5 +1,6 @@
 package;
 
+import defs.LevelDef;
 import flixel.FlxState;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import inputhelper.InputHelper;
@@ -54,14 +55,19 @@ class PlayState extends FlxState
 	
 	function init():Void 
 	{
+		//Create the groups
 		entities = new FlxTypedGroup<Entity>();
 		pBullets = new FlxTypedGroup<Bullet>(C.pBullets);
 		eBullets = new FlxTypedGroup<Bullet>(C.eBullets);
 		pObs = new FlxTypedGroup<Obstacle>();
 		eObs = new FlxTypedGroup<Obstacle>();
+		
+		//Create the player.
 		player = new Player(this);
 		entities.add(player);
 		
+		//Set the gamestate to paused first for a screen transition.
+		//TODO - Screen transition state
 		gs = GState.PAUSED;
 	
 	}
@@ -72,20 +78,27 @@ class PlayState extends FlxState
 			var b = new Bullet(10, 10, this);
 			b.kill();
 			pBullets.add(b);
+			entities.add(b);
 		}
 		for (i in 0...C.eBullets) {
 			var b = new Bullet(10, 10, this);
 			b.kill();
 			eBullets.add(b);
+			entities.add(b);
 		}
 		
 	
 	}
 	public function signalMe(signal:String, data:Dynamic) {
-		
+		switch (signal) 
+		{
+				
+			default:
+				
+		}
 	}
 	
-	public function initLevel() {
+	public function initLevel(levelDef:LevelDef) {
 		
 	}
 }

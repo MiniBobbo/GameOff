@@ -10,7 +10,7 @@ class Player extends Entity
 
 	public function new(playState:PlayState) 
 	{
-		super(0, 0, playState);
+		super(48, 48, playState);
 		makeGraphic(48, 48, FlxColor.GRAY);
 		
 	}
