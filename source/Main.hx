@@ -16,6 +16,6 @@ class Main extends Sprite
 		InputHelper.addButton('reload');
 		
 		
-		addChild(new FlxGame(0, 0, PlayState));
+		addChild(new FlxGame(480, 270, PlayState));
 	}
 }
